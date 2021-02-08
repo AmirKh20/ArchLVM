@@ -1,7 +1,7 @@
 #!/bin/sh
 #part 3 of my arch installation script
 #please make sure you edited the <> parts
-#run this after got chroot to /mnt
+#run this after you got into / (after chrooted into /mnt 
 
 #installing Kernel
 pacman -S linux-lts linux-lts-headers linux linux-headers
@@ -11,17 +11,20 @@ pacman --needed -S vim base-devel networkmanager wpa_supplicant wireless_tools n
 
 #enable network manager
 systemctl enable NetworkManager
+clear
 
 #enable lvm support
-echo "change this file by adding lvm2 betweem block and filesystems in line HOOKS"
-echo "press any key to continue ..."
+echo "Edit this file by adding lvm2 betweem block and filesystems in line HOOKS"
+echo "press Enter to Edit the file ..."
 read key
-
 vim /etc/mkinitcpio.conf
 mkinitcpio -p linux
 mkinitcpio -p linux-lts
+clear
 
 #gen locale
+echo "Uncomment your locale by pressing Enter"
+read key
 vim /etc/locale.gen
 locale-gen
 clear
@@ -34,9 +37,8 @@ passwd <amir>
 
 #configure sudo
 echo "uncomment wheel ALL=(ALL) ALL"
-echo "press any key to continue ..."
+echo "press Enter to Edit the file ..."
 read key
-
 visudo
 
 #setup grub
@@ -45,7 +47,7 @@ clear
 mkdir /boot/EFI
 #EDIT THIS
 mount </dev/sda1> /boot/EFI
-#EDIT THE LAST LINE
+#EDIT THAT LINE!
 grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 mkdir /boot/grub/locale
 cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
@@ -68,7 +70,7 @@ clear
 #pacman -S virtualbox-guest-utils xf86-video-vmware
 
 echo "exit and type umount -a"
-echo "and shutdow"
+echo "and type shutdow now"
 echo "GOOD LUCK!"
 echo
 
