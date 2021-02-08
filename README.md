@@ -37,6 +37,8 @@ Note that the default edtior in the scripts is vim, if you wanna change it feel 
 
 5-after you got done with the first script, you gonna go into fdisk. just type m for help or see the arch wiki or simply google it.
 
+also make sure you chose Linux LVM for the type of the root partition, and EFI for EFI partition.
+
 6-Run the second script:
 	
 	./archLVM2.sh
