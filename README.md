@@ -4,7 +4,14 @@ Note: This script uses LVM
 
 ****** The steps you should take **********
 
-1-After you get into arch live boot, Enter these commands:
+1- After you get into arch live boot, you should connect to internet to download the scripts. 
+
+if you want to connect to a wifi, in the coammand line type 'wifi-menu' and hit enter.
+
+check your ip and connection with 'ip a', and if you didnt have one, enter 'dhcpcd'
+
+
+2-After you successfully connected to internet, Enter these commands:
 	
 	pacman -Sy
 	
@@ -18,34 +25,34 @@ Note: This script uses LVM
 
 
 	
-2- EDIT those lines that have <> in the Sctipts, with your favourite editor.
+3- EDIT those lines that have <> in the Sctipts, with your favourite editor.
    there should'nt be any <> in the scripts when you want to run them, MAKE SURE OF THAT!
 Note that the default edtior in the scripts is vim, if you wanna change it feel free to chnage it to nano or something else.
 
 
 
-3- Run the first script in the ArchLVM directory with this command:
+4- Run the first script in the ArchLVM directory with this command:
 	
 	./archLVM1.sh
 
-4-after you got done with the first script, you gonna go into fdisk. just type m for help or see the arch wiki or simply google it.
+5-after you got done with the first script, you gonna go into fdisk. just type m for help or see the arch wiki or simply google it.
 
-5-Run the second script:
+6-Run the second script:
 	
 	./archLVM2.sh
 
-6-after the second script got finished, you have chrooted to /mnt. and now run the last script:
+7-after the second script got finished, you have chrooted to /mnt. and now run the last script:
 	
 	./archLVM3.sh
 
-7-when the script is done, enter this commands:
+8-when the script is done, enter this commands:
 	
 	exit
 	
 	umount -a
 	
 	shutdown now
-8-plug out your bootable USB. and turn on your pc.
+9-plug out your bootable USB. and turn on your pc.
 
 if the installation finished without any error, you should boot into your pc very well.
 

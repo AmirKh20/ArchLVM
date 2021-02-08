@@ -60,6 +60,8 @@ echo
 clear
 #ping test
 ping -c 5 google.com
+echo
+echo
 echo "if you didnt get ping, stop this script and try some solution from wiki"
 echo "press Enter to continue ..."
 read key
@@ -69,15 +71,17 @@ echo
 pacman -Syyy
 
 #edit mirrorlist
+echo
+echo
 echo "edit this file to get better speed"
-echo "press Enter to continue"
+echo "press Enter to edit"
 read key
 vim /etc/pacman.d/mirrorlist
 pacman -Syyy
 clear
 
 #fdisk
-echo "after you did the partition run the archIS2.sh script"
+echo "after you set the partition run the archLVM2.sh script"
 echo "press Enter to continue , MAKE SURE YOU EDITED THE <> PART"
 read key
 fdisk -l
