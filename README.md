@@ -5,11 +5,11 @@ this script use LVM
 ******The steps you should take**********
 
 1-After you get into arch live boot, Enter these commands:
-	pacman -Sy
-	pacman -S git
-	git clone https://github.com/AmirKh-prog/ArchLVM.git
-	cd ArchLVM
-	chmod a+rx archLVM1.sh archLVM2.sh archLVM3.sh
+	1-pacman -Sy
+	2-pacman -S git
+	3-git clone https://github.com/AmirKh-prog/ArchLVM.git
+	4-cd ArchLVM
+	5-chmod a+rx archLVM1.sh archLVM2.sh archLVM3.sh
 
 
 	
@@ -31,9 +31,9 @@ Note that the default edtior in the scripts is vim, if you wanna change it feel 
 	./archLVM3.sh
 
 7-when the script is done, enter this commands:
-	exit
-	umount -a
-	shutdown now
+	1-exit
+	2-umount -a
+	3-shutdown now
 8-plug out your bootable USB. and turn on your pc.
 
 if the installation finished without any error, you should boot into your pc very well.
