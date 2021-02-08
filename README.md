@@ -2,7 +2,7 @@
 This is my personal arch installation script
 this script use LVM
 
-******The steps you should take**********
+****** The steps you should take **********
 
 1-After you get into arch live boot, Enter these commands:
 	
