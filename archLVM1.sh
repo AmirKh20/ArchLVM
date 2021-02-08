@@ -35,25 +35,7 @@ if [ $ip == y ]
 then
    echo "ok!"
 else
-   echo "pick your wifi"
-   wifi-menu
-   echo
-   echo "check ip again"
-   ip a
-   echo
-   
-   echo "did you get an ip?[y/n]: "
-   read ip
-   if [ $ip == y ]
-   then
-	echo "great"
-   
-   else
-	dhcpcd
-	echo
-	ip a
-   fi
-	
+   echo "stop the script and fix that!"   
 fi
 echo
 
