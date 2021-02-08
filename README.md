@@ -6,7 +6,7 @@ Note: This script uses LVM
 
 1- After you get into arch live boot, you should connect to internet to download the scripts. 
 
-if you want to connect to a wifi, in the coammand line type 'wifi-menu' and hit enter.
+if you want to connect to a wifi, type 'wifi-menu' and hit enter.
 
 check your ip and connection with 'ip a', and if you didnt have one, enter 'dhcpcd'
 
