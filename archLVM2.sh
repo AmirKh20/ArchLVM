@@ -63,9 +63,10 @@ clear
 pacstrap -i /mnt base
 
 #About part3
+echo
+echo
 echo "after you pressed Enter, run the third script"
 read key
-echo
 
 #chroot to /mnt
 arch-chroot /mnt
