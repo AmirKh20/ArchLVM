@@ -56,5 +56,5 @@ Note that the default edtior in the scripts is vim, if you wanna change it feel 
 
 if the installation finished without any error, you should boot into your arch very well. and you can type your user name and password to login.
 
-this script is new. and has so many things that can be get better.
+this script is new. and has so many things that can get better.
 and sorry about my English :)
