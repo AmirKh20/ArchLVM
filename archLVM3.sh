@@ -22,6 +22,11 @@ mkinitcpio -p linux
 mkinitcpio -p linux-lts
 clear
 
+#Edit this <>
+#Time Zone
+ln -sf /usr/share/zoneinfo/<Region/City> /etc/localtime #if you dont know about your region and city just type 'ls /usr/share/zoneinfo/' and find it
+hwclock --systohc
+
 #gen locale
 echo "Uncomment your locale by pressing Enter"
 read key
