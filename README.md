@@ -6,9 +6,13 @@ this script use LVM
 
 1-After you get into arch live boot, Enter these commands:
 	1-pacman -Sy
+	
 	2-pacman -S git
+	
 	3-git clone https://github.com/AmirKh-prog/ArchLVM.git
+	
 	4-cd ArchLVM
+	
 	5-chmod a+rx archLVM1.sh archLVM2.sh archLVM3.sh
 
 
@@ -20,19 +24,25 @@ Note that the default edtior in the scripts is vim, if you wanna change it feel 
 
 
 3- Run the first script in the ArchLVM directory with this command:
+	
 	./archLVM1.sh
 
 4-after you got done with the first script, you gonna go into fdisk. just type m for help or see the arch wiki or simply google it.
 
 5-Run the second script:
+	
 	./archLVM2.sh
 
 6-after the second script got finished, you have chrooted to /mnt. and now run the last script:
+	
 	./archLVM3.sh
 
 7-when the script is done, enter this commands:
+	
 	1-exit
+	
 	2-umount -a
+	
 	3-shutdown now
 8-plug out your bootable USB. and turn on your pc.
 
