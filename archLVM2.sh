@@ -45,7 +45,10 @@ mount /dev/volg0/lv_root /mnt
 mkdir /mnt/home
 mount /dev/volg0/lv_home /mnt/home
 
+echo "press Enter to continue ..."
+read key
 clear
+
 #fstab
 mkdir /mnt/etc
 genfstab -U -p /mnt >> /mnt/etc/fstab
