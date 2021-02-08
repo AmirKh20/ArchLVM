@@ -45,7 +45,7 @@ Note that the default edtior in the scripts is vim, if you wanna change it feel 
 	
 	./archLVM3.sh
 
-8-when the script is done, enter this commands:
+8-when the script is done, enter these commands:
 	
 	exit
 	
@@ -54,7 +54,7 @@ Note that the default edtior in the scripts is vim, if you wanna change it feel 
 	shutdown now
 9-plug out your bootable USB. and turn on your pc.
 
-if the installation finished without any error, you should boot into your pc very well.
+if the installation finished without any error, you should boot into your arch very well. and you can type your user name and password to login.
 
 this script is new. and has so many things that can be get better.
 and sorry about my English :)
