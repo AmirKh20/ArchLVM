@@ -33,7 +33,6 @@ echo
 echo "did you get an ip? [y/n]: "
 read ip
 
-#connect to wifi
 if [ $ip == y ]
 then
    echo "ok!"
