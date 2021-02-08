@@ -64,7 +64,7 @@ clear
 
 #fdisk
 echo "after you set the partition run the archLVM2.sh script"
-echo "press Enter to continue , MAKE SURE YOU EDITED THE <> PART"
+echo "press Enter to set the partitions , MAKE SURE YOU'VE EDITED THE <> PART"
 read key
 fdisk -l
 
