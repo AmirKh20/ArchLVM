@@ -1,8 +1,9 @@
 #!/bin/sh
 
-# Autor : Amir Kh
-# First Part of Script for my arch installation with LDM
 # ArchLVM
+# Autor : Amir Kh
+# Thanks to jay from LearnLinuxTV Youtube Channel
+# First Part of Script for my arch installation with LDM
 
 echo "Welcome to my arch installation script!"
 echo
@@ -71,15 +72,16 @@ pacman -Syyy
 echo "edit this file to get better speed"
 echo "press Enter to continue"
 read key
-
 vim /etc/pacman.d/mirrorlist
 pacman -Syyy
-
 clear
+
 #fdisk
 echo "after you did the partition run the archIS2.sh script"
 echo "press Enter to continue , MAKE SURE YOU EDITED THE <> PART"
 read key
 fdisk -l
-#Edit this
+
+#Edit <>
+#you should change </dev/sda> to your disk name. you can look it up with 'fdisk -l as above' command. MAKE SURE you removed the '<' and '>'.
 fdisk </dev/sda>
