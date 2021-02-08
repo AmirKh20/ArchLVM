@@ -1,6 +1,6 @@
 # ArchLVM
-This is my personal arch installation script
-this script use LVM
+This is my personal arch installation script(on LVM), and it's based on a Video form a YouTube channel called LearnLinuxTV.
+Note: This script uses LVM
 
 ****** The steps you should take **********
 
