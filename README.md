@@ -41,7 +41,8 @@ Note that the default edtior in the scripts is vim, if you wanna change it feel 
 	
 	./archLVM2.sh
 
-7-after the second script got finished, you have chrooted to /mnt. you should clone the repository again, so enter the commands from step 2 and then enter this:
+7-after the second script got finished, you have chrooted to /mnt. you should clone the repository again, so enter the commands from step 2:
+Note: after you downloaded the scripts again, edit the archLVM3.sh for those <> lines and then run it with this:
 	
 	./archLVM3.sh
 

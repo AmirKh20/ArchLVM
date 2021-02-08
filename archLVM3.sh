@@ -31,9 +31,11 @@ clear
 
 #EDIT THIS <>
 #password and creating normal user
+echo "you're about to enter a passowrd for your root account"
 passwd
-useradd -m -g users -G wheel <amir> #user name
-passwd <amir> #user name
+useradd -m -g users -G wheel <user_name> #user name
+echo "and the password for your user account"
+passwd <user_name> #user name
 
 #configure sudo
 echo "uncomment wheel ALL=(ALL) ALL"
