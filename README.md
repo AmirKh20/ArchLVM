@@ -39,6 +39,8 @@ Note that the default edtior in the scripts is vim, if you wanna change it feel 
 
 also make sure you chose Linux LVM for the type of the root partition, and EFI for EFI partition.
 
+and don't creat swap partition because swapfile is gonna be created in the third script!
+
 6-Run the second script:
 	
 	./archLVM2.sh
