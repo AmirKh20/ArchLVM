@@ -5,6 +5,7 @@ this script use LVM
 ******The steps you should take**********
 
 1-After you get into arch live boot, Enter these commands:
+	
 	1-pacman -Sy
 	
 	2-pacman -S git
