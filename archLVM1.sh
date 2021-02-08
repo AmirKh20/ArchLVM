@@ -64,6 +64,13 @@ vim /etc/pacman.d/mirrorlist
 pacman -Syyy
 clear
 
+#update the system clock
+timedatectl set-ntp true
+echo "Check the time status"
+echo
+timedatectl status
+echo
+
 #fdisk
 echo "after you set the partitions, edit the second script and then run the archLVM2.sh"
 echo "press Enter to set the partitions , MAKE SURE YOU'VE EDITED THE <> PART"
