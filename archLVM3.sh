@@ -54,6 +54,9 @@ grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 mkdir /boot/grub/locale
 cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
 grub-mkconfig -o /boot/grub/grub.cfg
+
+echo "press Enter to continue"
+read key
 clear
 
 #creat swap file
@@ -63,6 +66,8 @@ chmod 600 /swapfile
 mkswap /swapfile
 cp /etc/fstab /etc/fstab.bak
 echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
+echo "press Enter to continue"
+read key
 clear
 
 #EDIT THIS (based on your pc drivers)
@@ -71,6 +76,7 @@ clear
 #for virtual box
 #pacman -S virtualbox-guest-utils xf86-video-vmware
 
+echo
 echo "exit and type umount -a"
 echo "and type shutdow now"
 echo "GOOD LUCK!"
