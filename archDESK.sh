@@ -2,6 +2,7 @@
 # This is Desktop Environment installaion script on Arch Linux
 # you should run this script with root
 
+clear
 echo "Welcome to DE installation script"
 echo "Make sure you are in root and have ping and ip address."
 echo "and NetworkManager is installed, eneabled and active"
