@@ -75,11 +75,13 @@ echo "press Enter to continue"
 read key
 clear
 
-#EDIT THIS (based on your pc drivers)
+#EDIT THIS (based on your pc drivers, you can look it up in 'lspci' command)
+
 #for intel and  nvidia
-#pacman -S intel-ucode xorg-server nvidia nvidia-lts nvidia-utils
+#pacman --needed -S intel-ucode xf86-video-intel libgl mesa xorg-server nvidia nvidia-lts nvidia-utils nvidia-libgl
+
 #for virtual box
-#pacman -S virtualbox-guest-utils xf86-video-vmware
+#pacman -S virtualbox-guest-utils xf86-video-vmware mesa
 
 echo
 echo "exit and type umount -a"
