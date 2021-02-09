@@ -60,9 +60,10 @@ then
 
 else
    echo "ERROR: you hit the wrong number"
+   read key
 fi
 
-
+clear
 echo "now reboot the system by hitting Enter..."
 echo "Note: if you don't want to reboot just press ctrl+c"
 read key
