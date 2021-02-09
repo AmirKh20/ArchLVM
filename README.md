@@ -21,7 +21,7 @@ check your ip and connection with 'ip a', and if you didnt have one, enter 'dhcp
 	
 	cd ArchLVM
 	
-	chmod a+rx archLVM1.sh archLVM2.sh archLVM3.sh
+	chmod a+rx archLVM1.sh archLVM2.sh archLVM3.sh archDESK.sh
 
 
 	
@@ -60,6 +60,8 @@ Note: after you downloaded the scripts again, edit the archLVM3.sh for those <> 
 9-plug out your bootable USB. and turn on your pc.
 
 if the installation finished without any error, you should boot into your arch very well. and you can type your user name and password to login.
+
+10- for installing a Desktop environment, run the archDESK.sh script. that script only install KDE/plasma , gnome, or xfce.
 
 this script is new. and has so many things that can get better.
 and sorry about my English :)
