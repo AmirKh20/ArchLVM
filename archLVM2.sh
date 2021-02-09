@@ -60,7 +60,7 @@ read key
 clear
 
 #pacstrap
-pacstrap -i /mnt base
+pacstrap -i /mnt base linux-firmware
 
 #About part3
 echo

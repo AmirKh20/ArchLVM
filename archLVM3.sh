@@ -34,15 +34,30 @@ vim /etc/locale.gen
 locale-gen
 clear
 
-#EDIT THIS <>
+#Network configuration
+echo "Enter your hostname"
+read h
+
+echo $h >> /etc/hostname
+clear
+
+echo "127.0.0.1         localhost" >> /etc/hosts
+echo "::1               localhost" >> /etc/hosts
+echo "127.0.1.1         $h.localdomain   $h" >> /etc/hosts
+clear
+
 #password and creating normal user
 echo "you're about to enter a passowrd for your root account"
 passwd
-useradd -m -g users -G wheel <user_name> #user name
+echo "Enter your username"
+read u
+
+useradd -m -g users -G wheel $u
 echo "and the password for your user account"
-passwd <user_name> #user name
+passwd $u
 
 #configure sudo
+echo
 echo "uncomment wheel ALL=(ALL) ALL"
 echo "press Enter to Edit the file ..."
 read key
