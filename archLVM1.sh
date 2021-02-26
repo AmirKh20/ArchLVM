@@ -52,15 +52,13 @@ read key
 echo
 
 #refresh mirrorlist
-pacman -Syyy
+pacman -Sy
+pacman --needed -S reflector
 
 #edit mirrorlist
 echo
 echo
-echo "edit this file to get better speed"
-echo "press Enter to edit"
-read key
-vim /etc/pacman.d/mirrorlist
+reflector -c <your country> -a 6 --sort rate --save /etc/pacman.d/mirrorlist
 pacman -Syyy
 clear
 

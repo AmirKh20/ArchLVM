@@ -7,10 +7,13 @@
 pacman -S linux-lts linux-lts-headers linux linux-headers
 
 #install some packages
-pacman --needed -S vim base-devel networkmanager wpa_supplicant wireless_tools netctl dialog terminator lvm2
+pacman --needed -S vim base-devel networkmanager wpa_supplicant wireless_tools netctl dialog terminator lvm2 git reflector cups
 
-#enable network manager
+#enable network manager & cups
 systemctl enable NetworkManager
+systemctl enable org.cups.cupsd
+echo "press Enter"
+read key
 clear
 
 #enable lvm support
