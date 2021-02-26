@@ -96,7 +96,7 @@ clear
 #EDIT THIS (based on your pc drivers, you can look it up in 'lspci' command)
 
 #for intel and  nvidia
-#pacman --needed -S intel-ucode xf86-video-intel libgl mesa xorg-server nvidia nvidia-lts nvidia-utils nvidia-libgl
+#pacman --needed -S intel-ucode xf86-video-intel libgl mesa xorg-server nvidia nvidia-lts nvidia-utils nvidia-libgl nvidia-settings
 
 #for virtual box
 #pacman -S virtualbox-guest-utils xf86-video-vmware mesa
