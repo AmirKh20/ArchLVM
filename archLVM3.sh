@@ -101,7 +101,12 @@ clear
 #for virtual box
 #pacman -S virtualbox-guest-utils xf86-video-vmware mesa
 
-echo
+#Install paru(AUR Helper)
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+clear
+
 echo "exit and type umount -a"
 echo "and type shutdow now"
 echo "GOOD LUCK!"
