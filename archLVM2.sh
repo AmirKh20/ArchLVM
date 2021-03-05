@@ -40,10 +40,13 @@ mkfs.fat -F32 </dev/sda1> #EFI partition name
 mkfs.ext4 /dev/volg0/lv_root #if you changed volg0 and lv_root, change them in here too
 mkfs.ext4 /dev/volg0/lv_home #and in here
 
-#Mounting lvm
+#EDIT THIS <>
+#Mounting 
 mount /dev/volg0/lv_root /mnt #here too
 mkdir /mnt/home
 mount /dev/volg0/lv_home /mnt/home #also here
+mkdir /boot/EFI
+mount </dev/sda1> /boot/EFI #name of the EFI partition
 
 echo "press Enter to continue ..."
 read key

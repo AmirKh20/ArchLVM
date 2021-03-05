@@ -69,10 +69,6 @@ visudo
 #setup grub
 pacman -S grub efibootmgr dosfstools os-prober mtools
 clear
-mkdir /boot/EFI
-#EDIT THIS
-mount </dev/sda1> /boot/EFI #name of the EFI partition
-#EDIT THAT LINE!
 grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 mkdir /boot/grub/locale
 cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
