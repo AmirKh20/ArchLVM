@@ -3,8 +3,8 @@
 #please make sure you edited the <> parts
 #run this after you got into / (after chrooted into /mnt) 
 
-#installing Kernel
-pacman -S linux-lts linux-lts-headers linux linux-headers
+#installing Kernel headers
+pacman -S linux-lts-headers linux-headers
 
 #install some packages
 pacman --needed -S vim base-devel networkmanager wpa_supplicant wireless_tools netctl dialog terminator lvm2 git reflector cups
@@ -100,12 +100,6 @@ clear
 
 #for virtual box
 #pacman -S virtualbox-guest-utils xf86-video-vmware mesa
-
-#Install paru(AUR Helper)
-git clone https://aur.archlinux.org/paru.git
-cd paru
-makepkg -si
-clear
 
 echo "exit and type umount -a"
 echo "and type shutdow now"
