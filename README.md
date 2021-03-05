@@ -63,5 +63,14 @@ if the installation finished without any error, you should boot into your arch v
 
 10- for installing a Desktop environment, run the archDESK.sh script. that script only install KDE/plasma , gnome, or xfce.
 
-this script is new. and has so many things that can get better.
-and sorry about my English :)
+**Troubleshooting**
+
+if your computr doesnt run grub,
+1-first make sure that the lvm module is preloaded
+  in /etc/default/grub
+GRUB_PRELOAD_MODULES="... lvm"
+2-make a directory into efi direcotry
+   mkdir /boot/EFI/EFI/boot
+copy grubx64.efi into /boot/EFI/EFI/boot and name it bootx64.efi
+   cp /boot/EFI/EFI/grub_uefi/grubx64.efi /boot/EFI/EFI/boot/bootx64.efi
+
