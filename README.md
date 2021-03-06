@@ -2,7 +2,7 @@
 This is my personal arch installation script(on LVM), and it's based on a Video from a YouTube channel called LearnLinuxTV.
 Note: This script uses LVM
 
-****** The steps you should take **********
+### The steps you should take
 
 1- After you get into arch live boot, you should connect to internet to download the scripts. 
 
@@ -63,7 +63,7 @@ if the installation finished without any error, you should boot into your arch v
 
 10- for installing a Desktop environment, run the archDESK.sh script. that script only install KDE/plasma , gnome, or xfce.
 
-**Troubleshooting**
+# Troubleshooting
 
 if your computr doesnt run grub,
 	
