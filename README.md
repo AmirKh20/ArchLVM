@@ -1,5 +1,6 @@
 # ArchLVM
-This is my personal arch installation script(on LVM), and it's based on a Video from a YouTube channel called LearnLinuxTV.
+This is my personal arch installation script(on LVM), and it's based on archwiki + a Video from a YouTube channel called LearnLinuxTV.
+
 Note: This script uses LVM and it's for UEFI systems
 
 ### The steps you should take
@@ -23,9 +24,10 @@ check your ip and connection with 'ip a', and if you didnt have one, enter 'dhcp
 
 	
 3- EDIT those lines that have <> in the Sctipts, with your favourite editor.
-   there should'nt be any <> in the scripts when you want to run them, MAKE SURE OF THAT!
-Note that the default edtior in the scripts is vim, if you wanna change it feel free to chnage it to nano or something else.
 
+   there should'nt be any <> in the scripts when you want to run them, MAKE SURE OF THAT!
+
+Note that the default edtior in the scripts is vim, if you wanna change it feel free to chnage it to nano or something else.
 
 
 4- Run the first script in the ArchLVM directory with this command:
@@ -43,6 +45,7 @@ and don't create swap partition because swapfile is gonna be created in the thir
 	./archLVM2.sh
 
 7-after the second script got finished, you have chrooted to /mnt. you should clone the repository again, so enter the commands from step 2:
+
 Note: after you downloaded the scripts again, edit the archLVM3.sh for those <> lines and then run it with this:
 	
 	./archLVM3.sh
