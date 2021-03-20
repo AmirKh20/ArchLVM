@@ -44,7 +44,7 @@ and don't create swap partition because swapfile is gonna be created in the thir
 	
 	./archLVM2.sh
 
-7-after the second script got finished, you have chrooted to /mnt. you should clone the repository again, so enter the commands from step 2:
+7-after the second script got finished, you have chrooted to /mnt. you should clone the repository again, so enter the commands from step 2
 
 Note: after you downloaded the scripts again, edit the archLVM3.sh for those <> lines and then run it with this:
 	
