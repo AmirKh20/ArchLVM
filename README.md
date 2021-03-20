@@ -65,7 +65,7 @@ if the installation finished without any error, you should boot into your arch v
 
 # Troubleshooting
 
-if your computr doesnt run grub,
+if your pc doesnt run grub and doesnt boot,
 	
 1-first make sure that the lvm module is preloaded
 in /etc/default/grub
