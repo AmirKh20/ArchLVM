@@ -20,9 +20,6 @@ check your ip and connection with 'ip a', and if you didnt have one, enter 'dhcp
 	git clone https://github.com/AmirKh-prog/ArchLVM.git
 	
 	cd ArchLVM
-	
-	chmod a+rx archLVM1.sh archLVM2.sh archLVM3.sh archDESK.sh
-
 
 	
 3- EDIT those lines that have <> in the Sctipts, with your favourite editor.
