@@ -21,7 +21,7 @@ echo
 ls /sys/firmware/efi/efivars
 echo
 echo "if there is no Error in the output, then we're in UEFI."
-echo "Otherwise please stop this script. and change some of it, or don't use it"
+echo "Otherwise please stop the script. and change some of it, or don't use it"
 
 #check internet
 echo
