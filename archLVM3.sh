@@ -73,7 +73,7 @@ grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 mkdir /boot/grub/locale
 cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
 echo 
-echo "Press Enter and add "lvm" to the GRUB_PRELOAD_MODULES line ((if it's not already added))"
+echo "Press Enter and add \"lvm\" to the GRUB_PRELOAD_MODULES line ((if it's not already added))"
 read key
 vim /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg

@@ -15,7 +15,7 @@ echo
 echo "is it inactive and disabled?[y/n]"
 read key
 
-if [ $key == y ]
+if [ $key = "y" ]
 then
    systemctl start NetworkManager
    systemctl enable NetworkManager
@@ -27,7 +27,7 @@ echo "press Enter to continue..."
 read key
 clear
 
-pacman -Syyy
+pacman -Syyu
 
 echo "NOTE: Also make sure you installed xorg-server and you pc drivers packages from ArchLVM3 script!!"
 echo "Press Enter to continue..."
@@ -41,18 +41,18 @@ echo "3- XFCE"
 echo
 read DE
 
-if [ $DE == 1 ]
+if [ $DE = "1" ]
 then
     pacman -S sddm
     systemctl enable sddm
     pacman -S plasma konsole dolphin
-elif [ $DE == 2 ]
+elif [ $DE = "2" ]
 then
     pacman -S gdm 
     systemctl enable gdm
     pacman --needed -S gnome gnome-terminal nautilus gnome-tweaks gnome-control-center gnome-backgrounds adwaita-icon-theme arc-gtk-theme
 
-elif [ $DE == 3 ]
+elif [ $DE = "3" ]
 then
     pacman -S lxdm
     systemctl enable lxdm
