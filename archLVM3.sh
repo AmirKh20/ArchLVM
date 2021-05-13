@@ -49,17 +49,18 @@ echo -e "${GREEN}Uncomment your locale${RESET}"
 enter_to_continue
 vim /etc/locale.gen
 locale-gen
-clear
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+enter_to_continue
 
 #Hostname and hosts configs
-echo -e "${GREEN}Enter your hostname${RESET}"
+echo -e "${GREEN}choose your hostname${RESET}"
 read h
 echo "$h" > /etc/hostname
 echo -e "127.0.0.1         localhost\n::1               localhost\n127.0.1.1         $h.localdomain   $h" > /etc/hosts
 clear
 
 #password and creating normal user
-echo -e "${GREEN}Enter your root password${RESET}"
+echo -e "${GREEN}choose a root password${RESET}"
 passwd
 echo -e "${GREEN}Enter a username${RESET}"
 read u
