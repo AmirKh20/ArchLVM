@@ -61,7 +61,7 @@ Note: after you downloaded the scripts again, edit the archLVM3.sh for those <> 
 
 if the installation finished without any error, you should boot into your arch very well. and you can type your user name and password to login.
 
-# Troubleshooting
+# Troubleshooting(Old Version)
 
 if your pc doesnt run grub and doesnt boot,
 
