@@ -61,8 +61,6 @@ Note: after you downloaded the scripts again, edit the archLVM3.sh for those <> 
 
 if the installation finished without any error, you should boot into your arch very well. and you can type your user name and password to login.
 
-10- for installing a Desktop environment, run the archDESK.sh script. that script only install KDE/plasma , gnome, or xfce.
-
 # Troubleshooting
 
 if your pc doesnt run grub and doesnt boot,
