@@ -48,8 +48,8 @@ echo -e "${GREEN}Mounting...${RESET}\n"
 mount /dev/volg0/lv_root /mnt #here too
 mkdir /mnt/home
 mount /dev/volg0/lv_home /mnt/home #also here
-mkdir /boot
-mount </dev/sda1> /boot #name of the EFI partition
+mkdir /mnt/boot
+mount </dev/sda1> /mnt/boot #name of the EFI partition
 enter_to_continue
 
 #fstab
