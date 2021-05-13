@@ -52,16 +52,16 @@ mkdir /mnt/boot
 mount </dev/sda1> /mnt/boot #name of the EFI partition
 enter_to_continue
 
+#pacstrap
+echo -e "${GREEN}pacstraping...${RESET}\n"
+pacstrap -i /mnt base linux linux-lts linux-firmware
+enter_to_continue
+
 #fstab
 echo -e "${GREEN}Generating fstab...${RESET}\n"
 mkdir /mnt/etc
 genfstab -U -p /mnt >> /mnt/etc/fstab
 cat /mnt/etc/fstab
-enter_to_continue
-
-#pacstrap
-echo -e "${GREEN}pacstraping...${RESET}\n"
-pacstrap -i /mnt base linux linux-lts linux-firmware
 echo -e "\n${GREEN}clone the repository again, edit and run the third script${RESET}"
 enter_to_continue
 
