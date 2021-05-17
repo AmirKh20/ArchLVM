@@ -77,7 +77,7 @@ visudo
 
 #setup grub
 echo -e "${GREEN}installing grub...${RESET}"
-pacman -S grub efibootmgr dosfstools os-prober mtools
+pacman -S grub efibootmgr dosfstools mtools ntfs-3g
 clear
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 echo -e "${GREEN}Press Enter and add \"lvm\" to the GRUB_PRELOAD_MODULES line ((if it's not already added))${RESET}"
