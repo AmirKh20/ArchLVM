@@ -100,7 +100,7 @@ enter_to_continue
 
 echo -e "${GREEN}Installing some driver...${RESET}"
 #for intel and  nvidia
-#pacman --needed -S intel-ucode xf86-video-intel libgl mesa xorg-server nvidia nvidia-lts nvidia-utils nvidia-libgl nvidia-settings
+#pacman --needed -S intel-ucode xf86-video-intel libgl mesa nvidia nvidia-lts nvidia-utils nvidia-libgl nvidia-settings
 
 #for virtual box
 #pacman -S virtualbox-guest-utils xf86-video-vmware mesa
