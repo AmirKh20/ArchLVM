@@ -14,9 +14,7 @@ check your ip and connection with 'ip a', and if you didnt have one, enter 'dhcp
 
 2-After you successfully connected to internet, Enter these commands:
 
-	pacman -Sy
-
-	pacman -S git
+	pacman -Sy git
 
 	git clone https://github.com/AmirKh20/ArchLVM.git
 
