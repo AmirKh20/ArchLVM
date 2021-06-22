@@ -98,9 +98,14 @@ enter_to_continue
 
 #EDIT THIS (based on your pc drivers, you can look it up in 'lspci' command)
 
-echo -e "${GREEN}Installing some driver...${RESET}"
+echo -e "${GREEN}Installing some driver and microcode...${RESET}"
 #for intel and  nvidia
 #pacman --needed -S intel-ucode xf86-video-intel libgl mesa nvidia nvidia-lts nvidia-utils nvidia-libgl nvidia-settings
+#amd
+#pacman --neede -S amd-ucode xf86-video-amdgpu mesa libgl
+
+#To load microcodes you need to regenrate grub config
+#grub-mkconfig -o /boot/grub/grub.cfg
 
 #for virtual box
 #pacman -S virtualbox-guest-utils xf86-video-vmware mesa
