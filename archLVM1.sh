@@ -2,7 +2,6 @@
 
 # ArchLVM
 # Autor : Amir Kh
-# Thanks to jay from LearnLinuxTV Youtube Channel
 # First Part of Script for my arch installation with LVM
 
 GREEN='\033[0;32m'

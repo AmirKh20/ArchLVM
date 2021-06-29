@@ -1,5 +1,5 @@
 # ArchLVM
-This is my personal arch installation script(on LVM), and it's based on archwiki + a Video from a YouTube channel called LearnLinuxTV.
+This is my personal arch installation script(on LVM). also check the [archwiki page](https://wiki.archlinux.org/title/Install_Arch_Linux_on_LVM)
 
 Note: This script uses LVM and it's for UEFI systems
 
