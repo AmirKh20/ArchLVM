@@ -1,8 +1,7 @@
 #!/bin/bash
-#this is the part two of arch installation
-#the first part is archLVM1.sh
-#NOTE: EDIT THE <> PARTS!!! there should not be any < and > in the script whene you run it!
-
+#part 2 of my arch installation script
+#please make sure you edited the <> parts
+#run this after you chrooted into /mnt
 GREEN='\033[0;32m'
 RED='\033[0;31m'
 MAGENTA='\033[0;35m'
@@ -13,58 +12,97 @@ enter_to_continue()
     echo -e "${MAGENTA}Press Enter to continue${RESET}"
     read && clear
 }
-
 clear
-echo -e "${GREEN}Runing lsblk...${RESET}\n"
-lsblk
-echo -e "is this correct ?"
+
+#installing Kernel headers
+echo -e "${GREEN}Installing kernel headers...${RESET}\n"
+pacman -S linux-lts-headers linux-headers &&
 enter_to_continue
 
-#Edit <> !!!!
-#Setup LVM
-echo -e "${GREEN}Creating pvs,vgs,lvs...${RESET}\n"
-pvcreate --dataalignment 1m </dev/sda2> #this is your LVM partition that has been created by yourself
-vgcreate volg0 </dev/sda2> #this too
-lvcreate -L <30GB> volg0 -n lv_root #this is the size of the root volume. you can change the name of the volume group too(volg0) and name of the root volume(lv_root)
-lvcreate -L <size of home> volg0 -n lv_home #change size of the home volume. also if you changed volume group in the last line,do it in here too
-#NOTE: if you want the whole free space for home volume (not using snapshots) change L to l
-#and <size of home> to 100%FREE
-modprobe dm_mod
-vgscan
-vgchange -ay
+#install some packages
+echo -e "${GREEN}Installing some packages...${RESET}\n"
+pacman --needed -S vim base-devel networkmanager wpa_supplicant wireless_tools netctl dialog lvm2 git reflector cups &&
 enter_to_continue
 
-#EDIT THIS!!!
-#Formating
-echo -e "${GREEN}Formating The EFI Partition and lvs...${RESET}\n"
-mkfs.fat -F32 </dev/sda1> #EFI partition name
-mkfs.ext4 /dev/volg0/lv_root #if you changed volg0 and lv_root, change them in here too
-mkfs.ext4 /dev/volg0/lv_home #and in here
+#enable network manager & cups
+echo -e "${GREEN}Enabling networkmanager and cups${RESET}\n"
+systemctl enable NetworkManager
+systemctl enable org.cups.cupsd
 enter_to_continue
 
-#EDIT THIS <>
-#Mounting
-echo -e "${GREEN}Mounting...${RESET}\n"
-mount /dev/volg0/lv_root /mnt #here too
-mkdir /mnt/home
-mount /dev/volg0/lv_home /mnt/home #also here
-mkdir /mnt/boot
-mount </dev/sda1> /mnt/boot #name of the EFI partition
+#adding lvm to initramfs
+sed -i '/HOOKS=/ s/block filesystems /block lvm2 filesystems /' /etc/mkinitcpio.conf
+mkinitcpio -P &&
 enter_to_continue
 
-#pacstrap
-echo -e "${GREEN}pacstraping...${RESET}\n"
-pacstrap -i /mnt base linux linux-lts linux-firmware
+#Edit this <>
+#Time Zone
+echo -e "${GREEN}Seting the timezone...${RESET}\n"
+ln -sf /usr/share/zoneinfo/<Region/City> /etc/localtime && #if you dont know about your region and city just type 'ls /usr/share/zoneinfo/' and find it
+hwclock --systohc
+
+#gen locale
+echo -e "${GREEN}Uncomment your locales${RESET}"
+enter_to_continue
+vim /etc/locale.gen
+locale-gen
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
 enter_to_continue
 
-#fstab
-echo -e "${GREEN}Generating fstab...${RESET}\n"
-mkdir /mnt/etc
-genfstab -U -p /mnt >> /mnt/etc/fstab
-cat /mnt/etc/fstab
-echo -e "\n${GREEN}clone the repository again, edit and run the third script${RESET}"
+#Hostname and hosts configs
+echo -e "${GREEN}choose your hostname${RESET}"
+read h
+echo "$h" > /etc/hostname
+echo -e "127.0.0.1         localhost\n::1               localhost\n127.0.1.1         $h.localdomain   $h" > /etc/hosts
+clear
+
+#password and creating normal user
+echo -e "${GREEN}choose a root password${RESET}"
+passwd
+echo -e "${GREEN}Enter a username${RESET}"
+read u
+useradd -m -G wheel "$u"
+echo -e "${GREEN}and a password for $u${RESET}"
+passwd "$u"
 enter_to_continue
 
-#chroot to /mnt
-echo -e "${GREEN}Chrooting...\n${RESET}"
-arch-chroot /mnt
+#configure sudo
+echo -e "${GREEN}configuring sudo${RESET}"
+echo -e "${RED}uncomment wheel ALL=(ALL) ALL${RESET}"
+enter_to_continue
+visudo
+
+#setup grub
+echo -e "${GREEN}installing grub...${RESET}"
+pacman -S grub efibootmgr dosfstools mtools ntfs-3g
+clear
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --removable --bootloader-id=GRUB
+#removing quiet and addinv lvm to grub config
+sed -i '/GRUB_CMDLINE_LINUX_DEFAULT=/ s/ quiet//' /etc/default/grub && sed -i '/GRUB_PRELOAD_MODULES=/ s/"$/ lvm"/' /etc/default/grub &&
+grub-mkconfig -o /boot/grub/grub.cfg
+enter_to_continue
+
+#creat swap file
+#EDIT THIS
+echo -e "${GREEN}Creating Swap file...${RESET}"
+fallocate -l <2G> /swapfile #size of the swap file
+chmod 600 /swapfile
+mkswap /swapfile
+cp /etc/fstab /etc/fstab.bak
+echo "/swapfile none swap sw 0 0" >> /etc/fstab
+enter_to_continue
+
+#EDIT THIS (based on your pc drivers, you can look it up in 'lspci' command)
+echo -e "${GREEN}Installing some driver and microcode...${RESET}"
+#for intel and  nvidia
+#pacman --needed -S intel-ucode xf86-video-intel libgl mesa nvidia nvidia-lts nvidia-utils nvidia-libgl nvidia-settings
+#amd
+#pacman --neede -S amd-ucode xf86-video-amdgpu mesa libgl
+
+#To load microcodes you need to regenrate grub config
+#grub-mkconfig -o /boot/grub/grub.cfg
+
+#for virtual box and vmware
+#pacman -S virtualbox-guest-utils xf86-video-vmware mesa
+
+echo -e "${GREEN}type exit and press enter, then run 'umount -R /mnt'\nthen reboot the system or shut it down\n${RESET}${RED}GOOD LUCK!${RESET}"

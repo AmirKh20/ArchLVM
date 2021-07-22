@@ -59,7 +59,7 @@ Note: after you downloaded the scripts again, edit the archLVM3.sh for those <> 
 
 if the installation finished without any error, you should boot into your arch very well. and you can type your user name and password to login.
 
-# Troubleshooting(Old Version)
+# Troubleshooting
 
 if your pc doesnt run grub and doesnt boot,
 
@@ -69,9 +69,13 @@ in /etc/default/grub
 	GRUB_PRELOAD_MODULES="... lvm"
 
 2-make a directory into efi direcotry
+`
+   mkdir /boot/efi/EFI/boot
 
-   	mkdir /boot/EFI/EFI/boot
+`
 copy grubx64.efi into /boot/EFI/EFI/boot and name it bootx64.efi
+`
 
-   	cp /boot/EFI/EFI/grub_uefi/grubx64.efi /boot/EFI/EFI/boot/bootx64.efi
+   	cp /boot/efi/EFI/grub/grubx64.efi /boot/efi/EFI/boot/bootx64.efi
 
+`
