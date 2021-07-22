@@ -105,4 +105,5 @@ echo -e "${GREEN}Installing some driver and microcode...${RESET}"
 #for virtual box and vmware
 #pacman -S virtualbox-guest-utils xf86-video-vmware mesa
 
-echo -e "${GREEN}type exit and press enter, then run 'umount -R /mnt'\nthen reboot the system or shut it down\n${RESET}${RED}GOOD LUCK!${RESET}"
+rm -v archLVM2.sh
+echo -e "${GREEN}run exit then 'umount -R /mnt'\nthen reboot the system or shut it down\n${RESET}${RED}GOOD LUCK!${RESET}"

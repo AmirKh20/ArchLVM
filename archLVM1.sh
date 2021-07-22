@@ -108,7 +108,8 @@ echo -e "${GREEN}Generating fstab...${RESET}\n"
 mkdir /mnt/etc
 genfstab -U -p /mnt >> /mnt/etc/fstab
 cat /mnt/etc/fstab
-echo -e "\n${GREEN}clone the repository again, edit and run the third script${RESET}"
+echo -e "\n${GREEN}moving the second script into /mnt so you can run it in the chrooted environment${RESET}"
+mv -v $(dirname $0)/archLVM2.sh /mnt
 
 #chroot to /mnt
 echo -e "${GREEN}Chrooting...\n${RESET}"

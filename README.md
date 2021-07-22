@@ -21,59 +21,53 @@ check your ip and connection with 'ip a', and if you didnt have one, enter 'dhcp
 	cd ArchLVM
 
 
-3- EDIT those lines that have <> in the Sctipts, with your favourite editor.
+3- EDIT those lines that have <> in the Scripts, with your favourite editor.
 
-   there should'nt be any <> in the scripts when you want to run them, MAKE SURE OF THAT!
+   there shouldn't be any <> in the scripts when you want to run them, MAKE SURE OF THAT!
 
-Note that the default edtior in the scripts is vim, if you wanna change it feel free to chnage it to nano or something else.
+Note that the default editor in the scripts is vim, if you wanna change it feel free to change it to nano or something else.
 
 
 4- Run the first script in the ArchLVM directory with this command:
 
 	./archLVM1.sh
 
-5-after you got done with the first script, you gonna go into fdisk. just type m for help or see the arch wiki or simply google it.
+5-after you got done with the first script, you gonna go into fdisk. just type m for help and read the arch wiki.
 
 also make sure you chose Linux LVM for the type of the root partition, and EFI for EFI partition.
 
 and don't create swap partition because swapfile is gonna be created in the third script!
 
-6-Run the second script:
+6-after the first script got finished, you have chrooted into /mnt. make sure you've edited the second script and run it with
 
 	./archLVM2.sh
-
-7-after the second script got finished, you have chrooted to /mnt. you should clone the repository again, so enter the commands from step 2
-
-Note: after you downloaded the scripts again, edit the archLVM3.sh for those <> lines and then run it with this:
-
-	./archLVM3.sh
 
 8-when the script is done, enter these commands:
 
 	exit
 
-	umount -a
+	umount -R /mnt
 
 	shutdown now
-9-plug out your bootable USB. and turn on your pc.
+9-plug out your live USB. and turn on your pc.
 
 if the installation finished without any error, you should boot into your arch very well. and you can type your user name and password to login.
 
-# Troubleshooting
+## Troubleshooting
 
-if your pc doesnt run grub and doesnt boot,
+if your pc doesn't run grub and doesn't boot,
 
 1-first make sure that the lvm module is preloaded
 in /etc/default/grub
 
 	GRUB_PRELOAD_MODULES="... lvm"
 
-2-make a directory into efi direcotry
+2-make a directory into efi directory
 `
    mkdir /boot/efi/EFI/boot
 
 `
-copy grubx64.efi into /boot/EFI/EFI/boot and name it bootx64.efi
+copy grubx64.efi into /boot/efi/EFI/boot and name it bootx64.efi
 `
 
    	cp /boot/efi/EFI/grub/grubx64.efi /boot/efi/EFI/boot/bootx64.efi
