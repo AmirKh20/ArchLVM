@@ -27,6 +27,9 @@ check your ip and connection with 'ip a', and if you didnt have one, enter 'dhcp
 
 Note that the default editor in the scripts is vim, if you wanna change it feel free to change it to nano or something else.
 
+if you want to make sure there is no <> left in the scripts run the following
+
+    grep -E "<.+>" archLVM1.sh
 
 4- Run the first script in the ArchLVM directory with this command:
 
