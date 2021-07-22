@@ -18,7 +18,7 @@ enter_to_continue()
 echo -e "${GREEN}Welcome to my arch installation script!\n${RESET}"
 echo -e "${GREEN}This is written by ${RESET}${RED}AmirKh20\n${RESET}"
 echo -e "${GREEN}My github: ${RESET}${RED}https://github.com/AmirKh20\n${RESET}"
-echo -e "${RED}WARNING: MAKE SURE YOU'VE EDITED LAST LINE OF THIS SCRIPT!!!\n${RESET}"
+echo -e "${RED}WARNING: MAKE SURE YOU'VE EDITED THE SCRIPT\n${RESET}"
 enter_to_continue
 
 #UEFI Check
@@ -55,7 +55,6 @@ enter_to_continue
 echo -e "\n${GREEN}Partition the disk, dont create swap partition, it will be created as a swap file. create a esp partition as 'EFI System' type with At least 260 MiB. choose other partition type as Linux LVM${RESET}"
 fdisk -l
 enter_to_continue
-read
 
 #Edit <>
 #you should change the next line to your disk name. you can look it up with 'fdisk -l' command. add other disks if desired
@@ -94,7 +93,7 @@ echo -e "${GREEN}Mounting...${RESET}\n"
 mount /dev/volg0/lv_root /mnt #here too
 mkdir /mnt/home
 mount /dev/volg0/lv_home /mnt/home #also here
-mkdir /mnt/boot/efi
+mkdir -p /mnt/boot/efi
 mount </dev/sda1> /mnt/boot/efi #name of the EFI partition
 enter_to_continue
 
