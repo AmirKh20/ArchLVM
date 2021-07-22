@@ -27,7 +27,7 @@ enter_to_continue
 #enable network manager & cups
 echo -e "${GREEN}Enabling networkmanager and cups${RESET}\n"
 systemctl enable NetworkManager
-systemctl enable org.cups.cupsd
+systemctl enable cups
 enter_to_continue
 
 #adding lvm to initramfs
@@ -70,7 +70,7 @@ enter_to_continue
 echo -e "${GREEN}configuring sudo${RESET}"
 echo -e "${RED}uncomment wheel ALL=(ALL) ALL${RESET}"
 enter_to_continue
-visudo
+EDITOR=vim visudo
 
 #setup grub
 echo -e "${GREEN}installing grub...${RESET}"

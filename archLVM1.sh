@@ -104,7 +104,6 @@ enter_to_continue
 
 #fstab
 echo -e "${GREEN}Generating fstab...${RESET}\n"
-mkdir /mnt/etc
 genfstab -U -p /mnt >> /mnt/etc/fstab
 cat /mnt/etc/fstab
 echo -e "\n${GREEN}moving the second script into /mnt so you can run it in the chrooted environment${RESET}"
