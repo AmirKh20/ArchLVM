@@ -35,7 +35,7 @@ if you want to make sure there is no <> left in the scripts run the following
 
 	./archLVM1.sh
 
-5-after you got done with the first script, you gonna go into fdisk. just type m for help and read the arch wiki.
+5-in the first script, you gonna go into fdisk. just type m for help and read the arch wiki.
 
 also make sure you chose Linux LVM for the type of the root partition, and EFI for EFI partition.
 
