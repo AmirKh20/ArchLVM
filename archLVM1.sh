@@ -109,7 +109,8 @@ genfstab -U -p /mnt >> /mnt/etc/fstab
 mv $(dirname $0)/archLVM2.sh /mnt
 #chroot to /mnt
 echo -e "${GREEN}Chrooting...\n${RESET}"
-echo -e "${RED}Did you edit the second script? if you didn't, please stop the script with ctrl-c, then edit /mnt/archLVM2.sh and run the last line of this file.${RESET}"
+echo -e "${RED}Did you edit the second script? if you didn't, please stop the script with ctrl-c, then edit /mnt/archLVM2.sh and run the arch-chroot line of this file${RESET}"
 enter_to_continue
 arch-chroot /mnt bash -c '/archLVM2.sh' && rm /mnt/archLVM2.sh && umount -R /mnt
 echo -e "${GREEN}REBOOTING...${RESET}"
+reboot
