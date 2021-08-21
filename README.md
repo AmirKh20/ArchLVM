@@ -25,7 +25,7 @@ Note that the default editor in the scripts is vim, if you wanna change it feel 
 
 If you want to make sure there is no <> left in the scripts run the following
 
-    grep -E "<.+>" archLVM1.sh archLVM2.sh
+    grep -E "<.+>" archLVM*
 
 4- Run the first script in the ArchLVM directory with this command:
 
