@@ -20,7 +20,7 @@ enter_to_continue
 
 #install some packages
 echo -e "${GREEN}Installing some packages...${RESET}\n"
-pacman --needed -S vim networkmanager lvm2 git reflector &&
+pacman --needed -S sudo vim networkmanager lvm2 git reflector &&
 enter_to_continue
 
 #enable network manager & cups
