@@ -55,6 +55,5 @@ in /etc/default/grub
 copy grubx64.efi into /boot/efi/EFI/boot and name it bootx64.efi
 
 ```
-    cp /boot/efi/EFI/grub/grubx64.efi /boot/efi/EFI/boot/bootx64.efi
-
+  cp /boot/efi/EFI/grub/grubx64.efi /boot/efi/EFI/boot/bootx64.efi
 ```
