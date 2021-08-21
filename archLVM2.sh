@@ -74,7 +74,7 @@ EDITOR=vim visudo
 echo -e "${GREEN}installing grub...${RESET}"
 pacman -S grub efibootmgr dosfstools mtools ntfs-3g
 clear
-grub-install --target=x86_64-efi --efi-directory=/boot/efi --removable --bootloader-id=GRUB
+grub-install --target=x86_64-efi --efi-directory=/efi --removable --bootloader-id=GRUB
 #removing quiet and adding lvm to grub config
 sed -i '/GRUB_CMDLINE_LINUX_DEFAULT=/s/ quiet//' /etc/default/grub && sed -i '/GRUB_PRELOAD_MODULES=/s/"$/ lvm"/' /etc/default/grub &&
 grub-mkconfig -o /boot/grub/grub.cfg

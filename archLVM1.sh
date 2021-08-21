@@ -93,8 +93,8 @@ echo -e "${GREEN}Mounting...${RESET}\n"
 mount /dev/volg0/lv_root /mnt #here too
 mkdir /mnt/home
 mount /dev/volg0/lv_home /mnt/home #also here
-mkdir -p /mnt/boot/efi
-mount </dev/sda1> /mnt/boot/efi #name of the EFI partition
+mkdir -p /mnt/efi
+mount </dev/sda1> /mnt/efi #name of the EFI partition
 enter_to_continue
 
 #pacstrap
