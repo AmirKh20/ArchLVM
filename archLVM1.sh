@@ -105,10 +105,11 @@ enter_to_continue
 #fstab
 echo -e "${GREEN}Generating fstab...${RESET}\n"
 genfstab -U -p /mnt >> /mnt/etc/fstab
-cat /mnt/etc/fstab
-echo -e "\n${GREEN}moving the second script into /mnt so you can run it in the chrooted environment${RESET}"
-mv -v $(dirname $0)/archLVM2.sh /mnt
 
+mv $(dirname $0)/archLVM2.sh /mnt
 #chroot to /mnt
 echo -e "${GREEN}Chrooting...\n${RESET}"
-arch-chroot /mnt
+echo -e "${RED}Did you edit the second script? if you didn't, please stop the script with ctrl-c, then edit /mnt/archLVM2.sh and run the last line of this file.${RESET}"
+enter_to_continue
+arch-chroot /mnt bash -c '/archLVM2.sh' && rm /mnt/archLVM2.sh && umount -R /mnt
+echo -e "${GREEN}REBOOTING...${RESET}"

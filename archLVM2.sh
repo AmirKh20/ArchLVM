@@ -1,7 +1,6 @@
 #!/bin/bash
-#part 2 of my arch installation script
-#please make sure you edited the <> parts
-#run this after you chrooted into /mnt
+## Part 2 of my arch installation script
+## Please make sure you edited the <> parts. This script should run in the chrooted environment
 GREEN='\033[0;32m'
 RED='\033[0;31m'
 MAGENTA='\033[0;35m'
@@ -21,17 +20,16 @@ enter_to_continue
 
 #install some packages
 echo -e "${GREEN}Installing some packages...${RESET}\n"
-pacman --needed -S vim base-devel networkmanager wpa_supplicant wireless_tools netctl dialog lvm2 git reflector cups &&
+pacman --needed -S vim networkmanager lvm2 git reflector &&
 enter_to_continue
 
 #enable network manager & cups
 echo -e "${GREEN}Enabling networkmanager and cups${RESET}\n"
 systemctl enable NetworkManager
-systemctl enable cups
 enter_to_continue
 
 #adding lvm to initramfs
-sed -i '/HOOKS=/ s/block filesystems /block lvm2 filesystems /' /etc/mkinitcpio.conf
+sed -i '/HOOKS=/s/block filesystems /block lvm2 filesystems /' /etc/mkinitcpio.conf
 mkinitcpio -P &&
 enter_to_continue
 
@@ -77,15 +75,15 @@ echo -e "${GREEN}installing grub...${RESET}"
 pacman -S grub efibootmgr dosfstools mtools ntfs-3g
 clear
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --removable --bootloader-id=GRUB
-#removing quiet and addinv lvm to grub config
-sed -i '/GRUB_CMDLINE_LINUX_DEFAULT=/ s/ quiet//' /etc/default/grub && sed -i '/GRUB_PRELOAD_MODULES=/ s/"$/ lvm"/' /etc/default/grub &&
+#removing quiet and adding lvm to grub config
+sed -i '/GRUB_CMDLINE_LINUX_DEFAULT=/s/ quiet//' /etc/default/grub && sed -i '/GRUB_PRELOAD_MODULES=/s/"$/ lvm"/' /etc/default/grub &&
 grub-mkconfig -o /boot/grub/grub.cfg
 enter_to_continue
 
-#creat swap file
+#create swap file
 #EDIT THIS
 echo -e "${GREEN}Creating Swap file...${RESET}"
-fallocate -l <2G> /swapfile #size of the swap file
+dd if=/dev/zero of=/swapfile bs=1M count=<4096> status=progress #Size if the swapfile in Megabytes. Default=4096 MB
 chmod 600 /swapfile
 mkswap /swapfile
 cp /etc/fstab /etc/fstab.bak
@@ -104,6 +102,3 @@ echo -e "${GREEN}Installing some driver and microcode...${RESET}"
 
 #for virtual box and vmware
 #pacman -S virtualbox-guest-utils xf86-video-vmware mesa
-
-rm -v archLVM2.sh
-echo -e "${GREEN}run exit then 'umount -R /mnt'\nthen reboot the system or shut it down\n${RESET}${RED}GOOD LUCK!${RESET}"
